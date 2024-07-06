@@ -1,0 +1,9 @@
+.input-group-calender {
+    max-width: 225px;
+    padding-left: 15px;
+}
+
+.react-datepicker__input-container {
+    width: auto;
+}
+  
