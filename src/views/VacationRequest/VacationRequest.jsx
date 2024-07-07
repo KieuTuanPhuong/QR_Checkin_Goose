@@ -54,7 +54,7 @@ const VacationRequest = () => {
         setIsLoading(true);
         try {
             const response = await axios.post(
-                `https://qrcodecheckin-d350fcfb1cb9.herokuapp.com/api/employee/create-request?employeeID=${userID}&employeeName=${userObject.name}`,
+                `${baseUrl}/api/employee/create-request?employeeID=${userID}&employeeName=${userObject.name}`,
                 formData,
             );
             alert("Successfully sent the request!");

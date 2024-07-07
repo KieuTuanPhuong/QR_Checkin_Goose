@@ -19,6 +19,8 @@ const Login = () => {
     const handleChange = (e) => {
         setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
     };
+
+    const baseUrl = process.env.REACT_APP_BASE_API_URL;
     
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -26,7 +28,7 @@ const Login = () => {
         dispatch({ type: "LOGIN_START" });
         try {
             const res = await axios.post(
-                "https://qrcodecheckin-d350fcfb1cb9.herokuapp.com/api/auth/manage-employee/login-employee",
+                `${baseUrl}/api/auth/manage-employee/login-employee`,
                 credentials,
                 { withCredentials: true }
             );

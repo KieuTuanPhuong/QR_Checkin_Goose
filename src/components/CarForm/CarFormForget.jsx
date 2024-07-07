@@ -24,7 +24,7 @@ const CarFormForget = ( props ) => {
 
         try {
             const response = await axios.post(
-                `https://qrcodecheckin-d350fcfb1cb9.herokuapp.com/api/employee/update-attendance?attendanceID=${ props.attendance_id_forgot }`,
+                `${baseUrl}/api/employee/update-attendance?attendanceID=${ props.attendance_id_forgot }`,
                 formData,
             );
             alert("Successfully update!");

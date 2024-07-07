@@ -31,7 +31,7 @@ const RequestHistory = () => {
     const getRequestHistory = async () => {
         try {
             const response = await axios.get(
-                `https://qrcodecheckin-d350fcfb1cb9.herokuapp.com/api/employee/get-all-request?employeeID=${userObject.id}&employeeName=${userObject.name}`
+                `${baseUrl}/api/employee/get-all-request?employeeID=${userObject.id}&employeeName=${userObject.name}`
             );
             setRequestLogs(response?.data?.message);
         } catch (error) {

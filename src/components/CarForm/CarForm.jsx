@@ -25,11 +25,13 @@ const CarForm = ( props ) => {
     
     const navigate = useNavigate();
 
+    const baseUrl = process.env.REACT_APP_BASE_API_URL;
+
     useEffect(() => {
         const getCompanyCars = async () => {
             try {
                 const response = await axios.get(
-                    `https://qrcodecheckin-d350fcfb1cb9.herokuapp.com/api/employee/get-car`,
+                    `${baseUrl}/api/employee/get-car`,
                 );
                 const companyCarOptions = response?.data?.message.filter(item => item.car_name !== "PRIVATE" && item?.department_name?.includes(props.departmentCar));
                 setCarOptions(companyCarOptions);
@@ -76,7 +78,7 @@ const CarForm = ( props ) => {
         if (validateFormData(formData)) {
             try {
                 const response = await axios.post(
-                    `https://qrcodecheckin-d350fcfb1cb9.herokuapp.com/api/employee/update-attendance?attendanceID=${ props.attendance_id }`,
+                    `${baseUrl}/api/employee/update-attendance?attendanceID=${ props.attendance_id }`,
                     formData,
                 );
                 alert("Successfully update!");

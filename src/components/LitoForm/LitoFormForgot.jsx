@@ -46,6 +46,7 @@ const LitoFormForgot = ( props ) => {
       
         return convertedObj;
     }
+    const baseUrl = process.env.REACT_APP_BASE_API_URL;
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -54,7 +55,7 @@ const LitoFormForgot = ( props ) => {
         if (validateFormData(data)) {
             try {
                 const response = await axios.post(
-                    `https://qrcodecheckin-d350fcfb1cb9.herokuapp.com/api/employee/update-attendance?attendanceID=${ props.attendance_id_forgot }`,
+                    `${baseUrl}/api/employee/update-attendance?attendanceID=${ props.attendance_id_forgot }`,
                     data,
                 );
                 alert("Successfully update!");
